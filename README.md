@@ -1,2 +1,2 @@
 # Veebiprogrammeerimine
-ISP eriala valikaine 2018
+ISP eriala valikaine
