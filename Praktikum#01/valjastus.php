@@ -28,3 +28,5 @@ if ($ilmvaljas == 'Sajab lund') {
 }   else {
     echo "Tuleb minna jooma<br>";
 }
+# ? operaator = ternary operator
+echo ($ilmvaljas = 'Sajab lund') ? "Tuleb minna sauna<br>" : "Tuleb minna jooma<br>";
