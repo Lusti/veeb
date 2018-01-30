@@ -10,3 +10,11 @@ $hind = 2.55;
 $soodustus = 15;
 $toetus = 1.80;
 
+#arvutamine
+if ($hind > 0 and $soodustus > 0 and $toetus > 0) {
+    $soodusHind = $hind * ((100 - $soodustus) / 100);
+    $hindopilasele = $soodusHind - $toetus;
+    echo 'Soogi hind opilasele = '.$hindopilasele;
+} else {
+    echo 'Andmed ei ole täielikud';
+}
