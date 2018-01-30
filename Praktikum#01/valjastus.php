@@ -24,7 +24,7 @@ echo 'Midagi konstantset? PI = '.NUMBER_PI.'<br>';
 # Tingimuslaused
 $ilmvaljas = 'Sajab lund';
 if ($ilmvaljas == 'Sajab lund') {
-    echo "Tuleb minna sauna";
+    echo "Tuleb minna sauna<br>";
 }   else {
-    echo "Tuleb minna jooma";
+    echo "Tuleb minna jooma<br>";
 }
