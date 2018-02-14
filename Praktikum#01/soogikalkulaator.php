@@ -20,6 +20,10 @@ $toetus = 1.80;
 require_once 'funktsioonid.php'; // ligipääs funktsioonid.php failile
 // Väljastamine HTML vormi
 loeVormFailist('vorm.html');
+var_dump($_POST);
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 // testimiseks paneme erinevad väärtused paika
 // kasutame selleks massiivi kujul (soodusKaart, kasOledOpilane)
 //
