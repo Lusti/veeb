@@ -16,21 +16,8 @@ $toetus = 1.80;
 * @param $soodusKaart
 * @param $kasOledOpilane
 */
-function soogiHind($taisHind, $soodusKaart = false, $kasOledOpilane = false){
-    // funktsiooni sisu
-    $soodusHind = $taisHind;
-    $soodustusProtsent = 15; // %
-    $opilaseToetus = 1.80; // EUR
-    if($soodusKaart){
-        $soodusHind = $taisHind * ((100 - $soodustusProtsent) / 100);
-    }
-    if($kasOledOpilane){
-        $soodusHind = $soodusHind - $opilaseToetus;
-        // $soodusHind -= $opilaseToetus; // - operaatori lühendatud kuju
-    }
-    return $soodusHind;
-}// funktsiooni lõpp
 
+require_once 'funktsioonid.php'; // ligipääs funktsioonid.php failile
 // testimiseks paneme erinevad väärtused paika
 // kasutame selleks massiivi kujul (soodusKaart, kasOledOpilane)
 //
