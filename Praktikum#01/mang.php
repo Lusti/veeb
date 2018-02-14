@@ -12,11 +12,13 @@ loeVormFailist('mang.html');
 if  (empty($pakutudnumber)) {
     echo "";
 }   elseif ($pakutudnumber >= $number - 5 and $pakutudnumber < $number) {
-        echo "Arv on natukene väiksem";
+        echo "Sinu arv on natukene väiksem";
 }   elseif ($pakutudnumber <= $number + 5 and $pakutudnumber > $number) {
-        echo "Arv on natukene Suurem";
+        echo "Suni arv on natukene Suurem";
 }   elseif ($pakutudnumber< "$number") {
         echo "Liiga väike arv";
 }   elseif ($pakutudnumber> "$number") {
         echo "Liiga suur arv";
+}   elseif ($pakutudnumber = $number) {
+        echo "Palju Õnne!";
 }
