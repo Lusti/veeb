@@ -14,7 +14,7 @@ if  (empty($pakutudnumber)) {
 }   elseif ($pakutudnumber >= $number - 5 and $pakutudnumber < $number) {
         echo "Sinu arv on natukene väiksem";
 }   elseif ($pakutudnumber <= $number + 5 and $pakutudnumber > $number) {
-        echo "Suni arv on natukene Suurem";
+        echo "Sinu arv on natukene Suurem";
 }   elseif ($pakutudnumber< "$number") {
         echo "Liiga väike arv";
 }   elseif ($pakutudnumber> "$number") {
