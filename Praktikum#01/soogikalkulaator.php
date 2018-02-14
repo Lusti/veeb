@@ -55,9 +55,28 @@ $kasutajad = array(
         'opilaskaart' => false
     )
 );
+
+// erinevad söögid
+$praed = array(
+    array(
+        'nimetus' => 'Šnitsel',
+        'kirjeldus' => 'šnitsel sealihast, lisand, kaste, salat, leib',
+        'hind' => 2.68
+    ),
+    array(
+        'nimetus' => 'Seapraad',
+        'kirjeldus' => 'seapraad, lisand, kaste, salat, leib',
+        'hind' => 2.65
+    )
+);
 // vaatame $kasutajad masiivi läbi
-// for( tjm defineerimine; tjm kehtivuse kontroll; tjm suurendamine/vähendamine)
-foreach ($kasutajad as $kasutaja){
-    $soogiHind = soogiHind(2.65, $kasutaja['soodus'], $kasutaja['opilaskaart']);
-    echo 'Prae hind '.$kasutaja['roll'].' = '.round($soogiHind, 2).' €<br />';
+foreach ($praed as $praad){
+    echo '<h1>'.$praad['nimetus'].'</h1>';
+    echo '<code>'.$praad['kirjeldus'].'</code><br />';
+    echo '<ul>';
+    foreach ($kasutajad as $kasutaja){
+        $soogiHind = soogiHind($praad['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']);
+        echo '<dd>Prae hind '.$kasutaja['roll'].' = '.round($soogiHind, 2).' €</dd><br />';
+    }
+    echo '</ul>';
 }
