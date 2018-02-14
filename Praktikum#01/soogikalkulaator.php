@@ -30,3 +30,14 @@ function soogiHind($taisHind, $soodusKaart, $kasOledOpilane){
     }
     return $soodusHind;
 }// funktsiooni lõpp
+
+// kutsume funktsiooni tööle
+// kui oled õpilane
+$soogiHind = soogiHind(2.65, true, true);
+echo 'Prae hind õpilasele = '.round($soogiHind, 2).' €<br />';
+// kui olemas klinedi kaart, aga pole õpilane
+$soogiHind = soogiHind(2.65, true, false);
+echo 'Prae hind sooduskaardi omanikule = '.round($soogiHind, 2).' €<br />';
+// kui ei ole kliendi kaarti
+$soogiHind = soogiHind(2.65, false, false);
+echo 'Prae hind = '.round($soogiHind, 2).' €<br />';
