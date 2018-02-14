@@ -16,7 +16,7 @@ $toetus = 1.80;
  * @param $soodusKaart
  * @param $kasOledOpilane
  */
-function soogiHind($taisHind, $soodusKaart, $kasOledOpilane){
+function soogiHind($taisHind, $soodusKaart = false, $kasOledOpilane = false){
     // funktsiooni sisu
     $soodusHind = $taisHind;
     $soodustusProtsent = 15; // %
@@ -39,5 +39,5 @@ echo 'Prae hind õpilasele = '.round($soogiHind, 2).' €<br />';
 $soogiHind = soogiHind(2.65, true, false);
 echo 'Prae hind sooduskaardi omanikule = '.round($soogiHind, 2).' €<br />';
 // kui ei ole kliendi kaarti
-$soogiHind = soogiHind(2.65, false, false);
+$soogiHind = soogiHind(2.65);
 echo 'Prae hind = '.round($soogiHind, 2).' €<br />';
