@@ -25,3 +25,23 @@ function soogiHind($taisHind, $soodusKaart = false, $kasOledOpilane = false){
     }
     return $soodusHind;
 }// funktsiooni lõpp
+
+// funktsioon vormi väljastamiseks
+// vorm hoiame vorm.html failis
+// vormi sisu loeme antud failist ja
+// väljastame
+function loeVormFailist($failinimi){
+    // siia salvestame sisu
+    $sisu = '';
+    // kontrollime vajaliku faili olemasolu
+    if(file_exists($failinimi) and is_file($failinimi) and is_readable($failinimi)){
+        // saab failist lugeda
+        $fp = fopen($failinimi, 'r'); // tekitame ühendus lugemiseks
+        // loeme failist täissisu
+        $sisu = fread($fp, filesize($failinimi));
+        fclose($fp); // paneme ühendus failiga kinni
+    } else {
+        echo 'Probleem '.$failinimi.' failiga<br />';
+        exit;
+    }
+    echo $sisu;
