@@ -11,7 +11,7 @@ $soodustus = 15;
 $toetus = 1.80;
 
 #funktsioon soodustuse arvutamiseks
-//**
+/**
 * @param $taisHind
 * @param $soodusKaart
 * @param $kasOledOpilane
@@ -39,9 +39,21 @@ function soogiHind($taisHind, $soodusKaart = false, $kasOledOpilane = false){
 // 2. real on õpetaja andmed
 // 3. real on külalise andmed
 $kasutajad = array(
-    array(true, true),
-    array(true, false),
-    array(false, false)
+    array(
+        'roll' => 'õpilane',
+        'soodus' => true,
+        'opilaskaart' => true
+    ),
+    array(
+        'roll' => 'õpetaja',
+        'soodus' => true,
+        'opilaskaart' => false
+    ),
+    array(
+        'roll' => 'külaline',
+        'soodus' => false,
+        'opilaskaart' => false
+    )
 );
 // vaatame $kasutajad masiivi läbi
 // for( tjm defineerimine; tjm kehtivuse kontroll; tjm suurendamine/vähendamine)
