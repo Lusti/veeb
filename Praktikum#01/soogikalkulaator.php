@@ -40,26 +40,24 @@ function soogiHind($taisHind, $soodusKaart = false, $kasOledOpilane = false){
 // 3. real on külalise andmed
 $kasutajad = array(
     array(
-        'roll' => 'õpilane',
+        'roll' => 'õpilasele',
         'soodus' => true,
         'opilaskaart' => true
     ),
     array(
-        'roll' => 'õpetaja',
+        'roll' => 'õpetajale',
         'soodus' => true,
         'opilaskaart' => false
     ),
     array(
-        'roll' => 'külaline',
+        'roll' => 'külalisele',
         'soodus' => false,
         'opilaskaart' => false
     )
 );
 // vaatame $kasutajad masiivi läbi
 // for( tjm defineerimine; tjm kehtivuse kontroll; tjm suurendamine/vähendamine)
-for($i = 0; $i < count($kasutajad); $i++)
-{
-    // kutsume funktsiooni tööle
-    $soogiHind = soogiHind(2.65, $kasutajad[$i][0], $kasutajad[$i][1]);
-    echo 'Prae hind = '.round($soogiHind, 2).' €<br />';
+foreach ($kasutajad as $kasutaja){
+    $soogiHind = soogiHind(2.65, $kasutaja['soodus'], $kasutaja['opilaskaart']);
+    echo 'Prae hind '.$kasutaja['roll'].' = '.round($soogiHind, 2).' €<br />';
 }
