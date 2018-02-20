@@ -22,3 +22,9 @@ if  (empty($pakutudnumber)) {
 }   elseif ($pakutudnumber = $number) {
         echo "Palju Õnne!";
 }
+$counter = 0;
+while(isset($_GET['submit'])) {
+        $counter++;
+        break;
+}
+echo "Proov:" .$counter;
