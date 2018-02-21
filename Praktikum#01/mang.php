@@ -10,29 +10,39 @@ if(isset($_GET['button'])) {
 }
 if(isset($_GET['reset'])) {
     $_SESSION['counter'] = 0;
+    $_SESSION['serveriArv'] = rand(1, 50);
 }
-?>
+#$serveriArv = isset($_SESSION['serveriArv']) ? rand(1,50);
+if (!isset($_SESSION['serveriArv'])) {
+    $_SESSION['serveriArv'] = rand(1, 50);
+} else {
+    $serveriArv = $_SESSION['serveriArv'];
+}
+$proov = $_SESSION['counter'];
+echo '
+    <form method="GET">
+        Sisesta number 1-50:<br>
+        <input type="hidden"    name="counter"  value="'.$proov.'">
+        <input type="hidden"    name="serveriarv" value="'.$serveriArv.'">
+        <input type="number"    name="number"   min="1" max="50">
+        <input type="submit"    name="button"   value="Vali!" />
+    </form>
+';
 
-<form method="GET">
-    Sisesta number 1-50:<br>
-    <input type="hidden"    name="counter"  value="<?php echo $_SESSION['counter']; ?>" />
-    <input type="number"    name="number"   min="1" max="50">
-    <input type="submit"    name="button"   value="Vali!" />
-</form>
-<?php
-$number = 10;
+#$number = 10;
+#$serveriArv = $number;
 $pakutudnumber = $_GET["number"];
 if  (empty($pakutudnumber)) {
     echo "";
-}   elseif ($pakutudnumber >= $number - 5 and $pakutudnumber < $number) {
+}   elseif ($pakutudnumber >= $serveriArv - 5 and $pakutudnumber < $serveriArv) {
     echo "Sinu arv on natukene väiksem";
-}   elseif ($pakutudnumber <= $number + 5 and $pakutudnumber > $number) {
+}   elseif ($pakutudnumber <= $serveriArv + 5 and $pakutudnumber > $serveriArv) {
     echo "Sinu arv on natukene Suurem";
-}   elseif ($pakutudnumber< "$number") {
+}   elseif ($pakutudnumber< "$serveriArv") {
     echo "Liiga väike arv";
-}   elseif ($pakutudnumber> "$number") {
+}   elseif ($pakutudnumber> "$serveriArv") {
     echo "Liiga suur arv";
-}   elseif ($pakutudnumber = $number) {
+}   elseif ($pakutudnumber = $serveriArv) {
     echo "Palju Õnne!";
 }
 
