@@ -5,10 +5,10 @@ if(!isset($_SESSION['counter'])) {
 $_SESSION['counter'] = 0;
 }
 
-if(isset($_GET['button'])) {
+if(isset($_POST['button'])) {
 ++$_SESSION['counter'];
 }
-if(isset($_GET['reset'])) {
+if(isset($_POST['reset'])) {
     $_SESSION['counter'] = 0;
     $_SESSION['serveriArv'] = rand(1, 50);
 }
@@ -20,7 +20,7 @@ if (!isset($_SESSION['serveriArv'])) {
 }
 $proov = $_SESSION['counter'];
 echo '
-    <form method="GET">
+    <form method="POST">
         Sisesta number 1-50:<br>
         <input type="hidden"    name="counter"  value="'.$proov.'">
         <input type="hidden"    name="serveriarv" value="'.$serveriArv.'">
@@ -31,7 +31,7 @@ echo '
 
 #$number = 10;
 #$serveriArv = $number;
-$pakutudnumber = $_GET["number"];
+$pakutudnumber = $_POST["number"];
 if  (empty($pakutudnumber)) {
     echo "";
 }   elseif ($pakutudnumber >= $serveriArv - 5 and $pakutudnumber < $serveriArv) {
@@ -48,7 +48,7 @@ if  (empty($pakutudnumber)) {
 
 echo "<br>Proov:" .$_SESSION['counter'];
 ?>
-<form mehot="GET">
+<form mehot="POST">
     <br>
     <input type="submit" name="reset" Value="Alusta Uuesti!">
 </form>
