@@ -25,8 +25,8 @@ $eesnimi = $_POST["eesnimi"];
 $perenimi = $_POST["perenimi"];
 $aeg = $_POST["aasta"]."-".$_POST["kuu"]."-".$_POST["paev"];
 #echo $aeg.' ,   '.$eesnimi.'    ,   '.$perenimi;
-echo "Sisestatud nimi:".$eesnimi." ".$perenimi."<br>";
-echo "Sisestatud kuupäev:".$aeg;
+#echo "Sisestatud nimi:".$eesnimi." ".$perenimi."<br>";
+#echo "Sisestatud kuupäev:".$aeg;
 # Andmebaasi saatmiseks
 $servername = "localhost";
 $username = "lustimarttiiktkh";
