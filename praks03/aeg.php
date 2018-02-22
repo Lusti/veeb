@@ -51,7 +51,7 @@ echo '
 ';
 $eesnimi = $_POST["eesnimi"];
 $perenimi = $_POST["perenimi"];
-$aeg = $_POST["kuu"].".".$_POST["paev"].".".$_POST["aasta"];
+$aeg = $_POST["paev"].".".$_POST["kuu"].".".$_POST["aasta"];
 #echo $aeg.' ,   '.$eesnimi.'    ,   '.$perenimi;
 echo "Sisestatud nimi:".$eesnimi." ".$perenimi."<br>";
 echo "Sisestatud kuupäev:".$aeg;
