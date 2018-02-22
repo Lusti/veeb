@@ -33,21 +33,25 @@ $username = "lustimarttiiktkh";
 $password = "Tyra12345";
 $dbname = "lustimar_test";
 
-// Create connection
+#Loo ühendus
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+#Kontrolli ühendust
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("<br>Connection failed: " . $conn->connect_error);
 }
+
+#Andmete saatmine
 
 $sql = "INSERT INTO andmed (eesnimi, perenimi, aeg)
 VALUES ('$eesnimi', '$perenimi', '$aeg')";
 
+#Kontrollin kas andmed on saadetud
 if ($conn->query($sql) === TRUE) {
-    echo "";
+    echo "<br><br>Andmed edastatud!";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
-echo "<br><br>INSERT INTO andmed (eesnimi, perenimi, aeg) VALUES ('$eesnimi', '$perenimi', '$aeg')";
+
+#echo "<br><br>INSERT INTO andmed (eesnimi, perenimi, aeg) VALUES ('$eesnimi', '$perenimi', '$aeg')";
