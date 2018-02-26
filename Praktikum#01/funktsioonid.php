@@ -46,4 +46,5 @@ function loeVormFailist($failinimi)
         exit;
     }
     echo $sisu;
+
     }
