@@ -23,5 +23,5 @@ require 'ab_fnk.php';
 loeVormFailist('aegvorm.html');
 
 uhendus();
-selectALL();
 send();
+selectALL();

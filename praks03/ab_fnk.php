@@ -9,35 +9,43 @@ $servername = "localhost";
 $username = "lustimarttiiktkh";
 $password = "Tyra12345";
 $dbname = "lustimar_test";
-$conn = new mysqli($servername, $username, $password, $dbname);
 $eesnimi = $_POST["eesnimi"];
 $perenimi = $_POST["perenimi"];
 $aeg = $_POST["aasta"]."-".$_POST["kuu"]."-".$_POST["paev"];
-echo $eesnimi;
+$conn = new mysqli($servername, $username, $password, $dbname);
 function uhendus()
 {
-    global $conn;
-#Loo ühendus
-    $conn;
-#Kontrolli ühendust
+    global $servername, $username, $password, $dbname, $conn;
+    #Loo ühendus
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    #Kontrolli ühendust
     if ($conn->connect_error) {
         die("<br>Ühendus puudub" . $conn->connect_error);
     }
+    return $conn;
 }
 function send() {
-    global $conn;
-    global $eesnimi, $perenimi, $aeg;
+    global $eesnimi,$perenimi, $aeg, $servername, $username, $password, $dbname, $conn;
     #Andmete saatmine
-        $sql = "INSERT INTO andmed (eesnimi, perenimi, aeg) VALUES ('$eesnimi', '$perenimi', '$aeg')";
-    #Kontrollin kas andmed on saadetud
-    if ($conn->query($sql) === TRUE) {
-        echo "<br><br>Andmed edastatud!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+        $con=mysqli_connect($servername,$username,$password,$dbname);
+        $val = mysqli_query($con,"select * from andmed WHERE eesnimi='$eesnimi' AND perenimi='$perenimi'");
+        if (!$val) {
+            die('Error: ' . mysqli_error($con));
+        }
+        if(mysqli_num_rows($val) > 0) {
+            echo "See isik on juba andmed sisestanud!<br><br>";
+        } else {
+            $sql = "INSERT INTO andmed (eesnimi, perenimi, aeg) VALUES ('$eesnimi', '$perenimi', '$aeg')";
+            #Kontrollin kas andmed on saadetud
+            if ($conn->query($sql) === TRUE) {
+                echo "Andmed edastatud!<br><br>";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
+
 }
-function selectALL()
-{
+function selectALL() {
     global $conn;
     $sql = "SELECT * FROM andmed";
     $result = $conn->query($sql);
